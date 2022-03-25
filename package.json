@@ -9,7 +9,7 @@
 	},
 	"keywords": [],
 	"dependencies": {
-		"request": "latest",
-		"sqlite3": "latest"
+		"request": "^2.87.0",
+		"sqlite3": "^5.0.2"
 	}
 }

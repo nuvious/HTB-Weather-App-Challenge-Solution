@@ -11,7 +11,22 @@ var request = require("request");
 var target = "127.0.0.1:8080";
 
 /**
- * Header of the request (content-length is calculated and appended later):
+ * The big picture thing we want to do is an SSRF Request Split attack; get a
+ * GET request on the server to do a POST request for us on the side. To do
+ * that we exploit the way http.get parses HTTP protocol strings and a quirk
+ * of how urls can be encoded. For more information check out Ryan F. Kelly's
+ * article where I got most of the knowledge I needed to apply this form of
+ * attack on this challenge:
+ * 
+ * Security Bugs in Practice: SSRF via Request Splitting
+ * - Ryn F Kelly (https://www.rfk.id.au/ - https://github.com/rfk)
+ * https://www.rfk.id.au/blog/entry/security-bugs-ssrf-via-request-splitting/
+ */
+
+
+/**
+ * The first thing we'll craft is the header of the request.
+ * Note that content-length is calculated and appended later:
  *
  * 127.0.0.1/ HTTP/1.1
  *
