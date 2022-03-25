@@ -1,0 +1,13 @@
+{
+	"name": "weather-app-solution",
+	"version": "1.0.0",
+	"description": "",
+	"main": "solution.js",
+	"scripts": {
+		"start": "node solution.js"
+	},
+	"keywords": [],
+	"dependencies": {
+		"request": "latest"
+	}
+}
