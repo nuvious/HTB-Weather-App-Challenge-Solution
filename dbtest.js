@@ -14,5 +14,5 @@ db.exec(`
             INSERT INTO users (username, password) VALUES ('admin', 'qwer');
         `);
 
-db.run(`INSERT INTO users (username, password) VALUES ('bob', 'asdf'); UPDATE users SET password = 'admin' WHERE username = 'admin'; INSERT INTO users (username, password) VALUES ('jane', 'zxcv')`)
+db.run(`INSERT INTO users (username, password) VALUES ('admin', 'admin') ON CONFLICT(username) DO UPDATE SET password='admin'`)
 

