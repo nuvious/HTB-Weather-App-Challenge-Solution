@@ -4,10 +4,12 @@
 	"description": "",
 	"main": "solution.js",
 	"scripts": {
-		"start": "node solution.js"
+		"start": "node solution.js",
+		"dbtest": "node dbtest.js"
 	},
 	"keywords": [],
 	"dependencies": {
-		"request": "latest"
+		"request": "latest",
+		"sqlite3": "latest"
 	}
 }
